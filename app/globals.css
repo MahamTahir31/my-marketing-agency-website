@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --google-blue: #4285f4;
+    --google-red: #ea4335;
+    --google-yellow: #fbbc05;
+    --google-green: #34a853;
+
+    --bg-dark: #0b0f19;
+    --bg-card: rgba(18, 24, 38, 0.7);
+    --border-glass: rgba(255, 255, 255, 0.08);
+
+    --color-background: var(--bg-dark);
+    --color-foreground: #f3f4f6;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #0b0f19;
+  color: #f3f4f6;
+  font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Hide Next.js Dev Indicator Badge ("N" button) */
+[data-nextjs-toast],
+[data-nextjs-dialog-overlay],
+nextjs-portal,
+#next-logo,
+#__next-build-watcher {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f19;
+}
+::-webkit-scrollbar-thumb {
+  background: #1f293d;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4285f4;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(18, 24, 38, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(24, 32, 50, 0.85);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Google Glow Border Effect */
+.google-glow-blue {
+  box-shadow: 0 0 25px -5px rgba(66, 133, 244, 0.3);
+}
+.google-glow-red {
+  box-shadow: 0 0 25px -5px rgba(234, 67, 53, 0.3);
+}
+.google-glow-yellow {
+  box-shadow: 0 0 25px -5px rgba(251, 188, 5, 0.3);
+}
+.google-glow-green {
+  box-shadow: 0 0 25px -5px rgba(52, 168, 83, 0.3);
+}
+
+/* Text Gradient Utilities */
+.text-gradient-google {
+  background: linear-gradient(135deg, #4285f4 0%, #ea4335 33%, #fbbc05 66%, #34a853 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-blue {
+  background: linear-gradient(135deg, #60a5fa 0%, #4285f4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-yellow {
+  background: linear-gradient(135deg, #fde047 0%, #fbbc05 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Multi-color Google Border Accent */
+.google-multi-border {
+  position: relative;
+}
+.google-multi-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4285f4 0%, #ea4335 25%, #fbbc05 50%, #34a853 75%, #4285f4 100%);
+  background-size: 200% 100%;
+  animation: googleGradientMove 6s linear infinite;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+
+/* Ambient Background Blobs Animation */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-25px) scale(1.05);
+  }
+}
+
+@keyframes googleGradientMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 10s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: floatSlow 12s ease-in-out 3s infinite;
+}
+
+/* Pulsing Badge Glow */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
