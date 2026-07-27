@@ -1,4 +1,4 @@
-Try it here: [Live Demo]([url](https://maham-tahir-marketing-and-social-media-specialist.vercel.app/))
+Try it here: [Live Demo](https://maham-tahir-marketing-and-social-media-specialist.vercel.app/)
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
